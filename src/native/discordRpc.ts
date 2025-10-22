@@ -13,15 +13,15 @@ export async function initDiscordRpc() {
 
     rpc.on("ready", () =>
       rpc.setActivity({
-        state: "stoat.chat",
+        state: "chalk.plus",
         details: "Chatting with others",
         largeImageKey: "qr",
         // largeImageText: "Communication is critical – use Revolt.",
         largeImageText: "",
         buttons: [
           {
-            label: "Join Stoat",
-            url: "https://stoat.chat/",
+            label: "Join",
+            url: "https://chalk.plus/",
           },
         ],
       }),

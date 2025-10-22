@@ -29,7 +29,7 @@ const makers: ForgeConfig["makers"] = [
     name: STRINGS.name,
     authors: STRINGS.author,
     // todo: hoist this
-    iconUrl: `https://stoat.chat/app/assets/icon-DUSNE-Pb.ico`,
+    iconUrl: `https://chalk.plus/assets/web/android-chrome-192x192.png`,
     // todo: loadingGif
     setupIcon: `${ASSET_DIR}/icon.ico`,
     description: STRINGS.description,
