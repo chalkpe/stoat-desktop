@@ -14,8 +14,8 @@ import { FuseV1Options, FuseVersion } from "@electron/fuses";
 
 const STRINGS = {
   author: "Revolt Platforms LTD",
-  name: "Stoat",
-  execName: "stoat-desktop",
+  name: "Toast",
+  execName: "toast-desktop",
   description: "Open source user-first chat platform.",
 };
 
@@ -31,7 +31,7 @@ const makers: ForgeConfig["makers"] = [
     // todo: hoist this
     iconUrl: `https://chalk.plus/assets/web/android-chrome-192x192.png`,
     // todo: loadingGif
-    setupIcon: `${ASSET_DIR}/icon.ico`,
+    setupIcon: 'src/native/icon.ico',
     description: STRINGS.description,
     exe: `${STRINGS.execName}.exe`,
     setupExe: `${STRINGS.execName}-setup.exe`,
@@ -59,7 +59,7 @@ if (!process.env.PLATFORM) {
         productName: STRINGS.name,
         productDescription: STRINGS.description,
         runtimeVersion: "21.08",
-        icon: `${ASSET_DIR}/icon.png`,
+        icon: 'src/native/icon.png',
         categories: ["Network"],
         modules: [
           // use the latest zypak -- Electron sandboxing for Flatpak
@@ -116,7 +116,7 @@ if (!process.env.PLATFORM) {
         productName: STRINGS.name,
         productDescription: STRINGS.description,
         categories: ["Network"],
-        icon: `${ASSET_DIR}/icon.png`,
+        icon: `src/native/icon.png`,
       },
     }),
   );
@@ -127,7 +127,7 @@ const config: ForgeConfig = {
     asar: true,
     name: STRINGS.name,
     executableName: STRINGS.execName,
-    icon: `${ASSET_DIR}/icon`,
+    icon: 'src/native/icon',
     // extraResource: [
     //   // include all the asset files
     //   ...globSync(ASSET_DIR + "/**/*"),
