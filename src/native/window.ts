@@ -9,7 +9,7 @@ import {
   nativeImage,
 } from "electron";
 
-import windowIconAsset from "../../assets/desktop/icon.png?asset";
+import windowIconAsset from "./icon.png?asset";
 
 import { config } from "./config";
 import { updateTrayMenu } from "./tray";
@@ -40,8 +40,10 @@ export function createMainWindow() {
   mainWindow = new BrowserWindow({
     minWidth: 300,
     minHeight: 300,
-    width: 1280,
-    height: 720,
+    width: config.windowState.width ?? 1280,
+    height: config.windowState.height ?? 720,
+    x: config.windowState.x,
+    y: config.windowState.y,
     backgroundColor: "#191919",
     frame: !config.customFrame,
     icon: windowIcon,
@@ -67,6 +69,15 @@ export function createMainWindow() {
 
   // minimise window to tray
   mainWindow.on("close", (event) => {
+    const bounds = mainWindow.getBounds();
+    config.windowState = {
+      ...config.windowState,
+      x: bounds.x,
+      y: bounds.y,
+      width: bounds.width,
+      height: bounds.height,
+    }
+
     if (!shouldQuit && config.minimiseToTray) {
       event.preventDefault();
       mainWindow.hide();

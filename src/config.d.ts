@@ -1,3 +1,5 @@
+import { Rectangle } from "electron";
+
 declare type DesktopConfig = {
   firstLaunch: boolean;
   customFrame: boolean;
@@ -6,6 +8,10 @@ declare type DesktopConfig = {
   hardwareAcceleration: boolean;
   discordRpc: boolean;
   windowState: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     isMaximised: boolean;
   };
 };
