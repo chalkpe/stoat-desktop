@@ -167,6 +167,10 @@ export function createMainWindow() {
     mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize(),
   );
   ipcMain.on("close", () => mainWindow.close());
+  ipcMain.on("show", () => {
+    mainWindow.show();
+    mainWindow.focus();
+  });
 
   // mainWindow.webContents.openDevTools();
 
