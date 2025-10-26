@@ -3,7 +3,7 @@
   "productName": "stoat-desktop",
   "version": "1.1.11",
   "main": ".vite/build/main.js",
-  "repository": "stoatchat/desktop",
+  "repository": "chalkpe/stoat-desktop",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
