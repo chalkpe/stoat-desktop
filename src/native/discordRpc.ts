@@ -13,7 +13,7 @@ export async function initDiscordRpc() {
 
     rpc.on("ready", () =>
       rpc.setActivity({
-        state: "chalk.plus",
+        state: "toast.best",
         details: "Chatting with others",
         largeImageKey: "qr",
         // largeImageText: "Communication is critical – use Revolt.",
@@ -21,7 +21,7 @@ export async function initDiscordRpc() {
         buttons: [
           {
             label: "Join",
-            url: "https://chalk.plus/",
+            url: "https://toast.best/",
           },
         ],
       }),

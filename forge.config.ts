@@ -29,7 +29,7 @@ const makers: ForgeConfig["makers"] = [
     name: STRINGS.name,
     authors: STRINGS.author,
     // todo: hoist this
-    iconUrl: `https://chalk.plus/assets/web/android-chrome-192x192.png`,
+    iconUrl: `https://toast.best/assets/web/android-chrome-192x192.png`,
     // todo: loadingGif
     setupIcon: 'src/native/icon.ico',
     description: STRINGS.description,
