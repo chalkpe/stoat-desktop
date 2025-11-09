@@ -112,6 +112,10 @@ export function createMainWindow() {
       mainWindow.webContents.setZoomLevel(
         mainWindow.webContents.getZoomLevel() - 1,
       );
+    } else if (input.control && input.key === "r") {
+      // reload page (Ctrl+R)
+      event.preventDefault();
+      mainWindow.webContents.reload();
     }
   });
 

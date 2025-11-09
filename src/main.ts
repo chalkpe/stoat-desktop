@@ -21,6 +21,11 @@ if (!config.hardwareAcceleration) {
   app.disableHardwareAcceleration();
 }
 
+// Windows specific fix for notifications and taskbar pinning
+if (process.platform === "win32") {
+  app.setAppUserModelId("chat.stoat.notifications");
+}
+
 // ensure only one copy of the application can run
 const acquiredLock = app.requestSingleInstanceLock();
 
@@ -41,11 +46,6 @@ if (acquiredLock) {
     createMainWindow();
     initTray();
     initDiscordRpc();
-
-    // Windows specific fix for notifications
-    if (process.platform === "win32") {
-      app.setAppUserModelId("chat.stoat.notifications");
-    }
   });
 
   // focus the window if we try to launch again
