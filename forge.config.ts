@@ -15,7 +15,6 @@ import { FuseV1Options, FuseVersion } from "@electron/fuses";
 const STRINGS = {
   author: "Revolt Platforms LTD",
   name: "Toast",
-  execName: "toast-desktop",
   description: "Open source user-first chat platform.",
 };
 
@@ -33,8 +32,8 @@ const makers: ForgeConfig["makers"] = [
     // todo: loadingGif
     setupIcon: 'src/native/icon.ico',
     description: STRINGS.description,
-    exe: `${STRINGS.execName}.exe`,
-    setupExe: `${STRINGS.execName}-setup.exe`,
+    exe: `${STRINGS.name}.exe`,
+    setupExe: `${STRINGS.name}-setup.exe`,
     copyright: "Copyright (C) 2025 Revolt Platforms LTD",
   }),
   new MakerZIP({}),
@@ -47,7 +46,7 @@ if (!process.env.PLATFORM) {
     // not much use in being published anyhow
     new MakerAppX({
       certPass: "",
-      packageExecutable: `app\\${STRINGS.execName}.exe`,
+      packageExecutable: `app\\${STRINGS.name.toLowerCase()}.exe`,
       publisher: "CN=B040CC7E-0016-4AF5-957F-F8977A6CFA3B",
     }),
     // flatpak publishing should occur through flathub repos.
@@ -126,12 +125,15 @@ const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     name: STRINGS.name,
-    executableName: STRINGS.execName,
+    executableName: STRINGS.name,
     icon: 'src/native/icon',
     // extraResource: [
     //   // include all the asset files
     //   ...globSync(ASSET_DIR + "/**/*"),
     // ],
+    extendInfo: {
+      LSUIElement: false,
+    },
   },
   rebuildConfig: {},
   makers,
