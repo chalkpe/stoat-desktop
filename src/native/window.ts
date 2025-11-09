@@ -172,6 +172,7 @@ export function createMainWindow() {
   );
   ipcMain.on("close", () => mainWindow.close());
   ipcMain.on("show", () => {
+    mainWindow.restore();
     mainWindow.show();
     mainWindow.focus();
   });
