@@ -126,38 +126,17 @@ export function createMainWindow() {
   mainWindow.webContents.on("context-menu", (_, params) => {
     const menu = new Menu();
 
-    // add all suggestions
-    for (const suggestion of params.dictionarySuggestions) {
+    // add option to copy image to clipboard
+    if (params.mediaType === "image" && params.srcURL) {
       menu.append(
         new MenuItem({
-          label: suggestion,
-          click: () => mainWindow.webContents.replaceMisspelling(suggestion),
+          label: "이미지 복사",
+          click: () => {
+            mainWindow.webContents.copyImageAt(params.x, params.y);
+          },
         }),
       );
     }
-
-    // allow users to add the misspelled word to the dictionary
-    if (params.misspelledWord) {
-      menu.append(
-        new MenuItem({
-          label: "Add to dictionary",
-          click: () =>
-            mainWindow.webContents.session.addWordToSpellCheckerDictionary(
-              params.misspelledWord,
-            ),
-        }),
-      );
-    }
-
-    // add an option to toggle spellchecker
-    menu.append(
-      new MenuItem({
-        label: "Toggle spellcheck",
-        click() {
-          config.spellchecker = !config.spellchecker;
-        },
-      }),
-    );
 
     // show menu if we've generated enough entries
     if (menu.items.length > 0) {

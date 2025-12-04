@@ -1,7 +1,7 @@
 {
   "name": "stoat-desktop",
   "productName": "stoat-desktop",
-  "version": "1.1.11-beta.3",
+  "version": "1.1.11-beta.4",
   "main": ".vite/build/main.js",
   "repository": "chalkpe/stoat-desktop",
   "scripts": {
