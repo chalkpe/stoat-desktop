@@ -6,6 +6,7 @@ import started from "electron-squirrel-startup";
 import { autoLaunch } from "./native/autoLaunch";
 import { config } from "./native/config";
 import { initDiscordRpc } from "./native/discordRpc";
+import { initNotificationSound } from "./native/notificationSound";
 import { initTray } from "./native/tray";
 import { BUILD_URL, createMainWindow, mainWindow } from "./native/window";
 
@@ -46,6 +47,7 @@ if (acquiredLock) {
     createMainWindow();
     initTray();
     initDiscordRpc();
+    initNotificationSound();
   });
 
   // focus the window if we try to launch again
